@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         textViewPremium.setText(getString(R.string.premium)+
-                " " + premium);
+                " " + symbol + premium);
     }
 
     public void resetButton (View view){
