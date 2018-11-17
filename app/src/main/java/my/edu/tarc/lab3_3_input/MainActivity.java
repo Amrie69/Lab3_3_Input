@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity
     private RadioButton radioButtonMale, radioButtonFemale;
     private CheckBox checkBoxSmoker;
     private TextView textViewPremium;
-    double premium = 0.0;
+    private double premium = 0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,11 +65,11 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void calculatePremium(View view){
-        int postiton;
+    public void calculatePremium(View view) {
+        int position;
 
-        postiton = spinnerAge.getSelectedItemPosition();
-        switch (postiton){
+        position = spinnerAge.getSelectedItemPosition();
+        switch (position) {
             case 0:
                 //TODO  calculate the basic premium
                 premium = 50;
@@ -100,9 +100,9 @@ public class MainActivity extends AppCompatActivity
 
         int gender;
         gender = radioGroupGender.getCheckedRadioButtonId();
-        if(gender == R.id.radioButtonMale) {
+        if (gender == R.id.radioButtonMale) {
             //TODO calculate extra premium for male
-            switch (postiton){
+            switch (position) {
                 case 2:
                 case 5:
                     premium += 50;
@@ -118,9 +118,10 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-        if(checkBoxSmoker.isChecked()){
+        String symbol = null;
+        if (checkBoxSmoker.isChecked()) {
             //TODO calculate extra premium for smoker
-            switch (postiton){
+            switch (position) {
                 case 3:
                     premium += 100;
                     break;
@@ -139,11 +140,10 @@ public class MainActivity extends AppCompatActivity
             }
 
             Currency currency = Currency.getInstance(Locale.getDefault());
-            String symbol =currency.getSymbol();
+            symbol = currency.getSymbol();
         }
 
-        textViewPremium.setText(getString(R.string.premium)+
-                " " + symbol + premium);
+        textViewPremium.setText(getString(R.string.premium) + " " + symbol + premium);
     }
 
     public void resetButton (View view){
