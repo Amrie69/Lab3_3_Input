@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity
     private CheckBox checkBoxSmoker;
     private TextView textViewPremium;
     private double premium = 0.0;
+    private String symbol = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity
 
     public void calculatePremium(View view) {
         int position;
+
 
         position = spinnerAge.getSelectedItemPosition();
         switch (position) {
@@ -118,7 +120,7 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-        String symbol = null;
+
         if (checkBoxSmoker.isChecked()) {
             //TODO calculate extra premium for smoker
             switch (position) {
@@ -139,19 +141,18 @@ public class MainActivity extends AppCompatActivity
 
             }
 
-            Currency currency = Currency.getInstance(Locale.getDefault());
-            symbol = currency.getSymbol();
         }
+        Currency currency = Currency.getInstance(Locale.getDefault());
+        symbol = currency.getSymbol();
 
-        textViewPremium.setText(getString(R.string.premium) + " " + symbol + premium);
+        textViewPremium.setText(getString(R.string.Premium) + " " + " = " + symbol + premium);
     }
 
-    public void resetButton (View view){
-        textViewPremium.setText(null);
+    public void resetButton(View view) {
+        textViewPremium.setText(getString(R.string.Premium));
         premium = 0;
         spinnerAge.setSelection(0);
-        radioButtonMale.setChecked(false);
-        radioButtonFemale.setChecked(false);
+        radioButtonMale.toggle();
         checkBoxSmoker.setChecked(false);
     }
 }

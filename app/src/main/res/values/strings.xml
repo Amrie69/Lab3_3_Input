@@ -4,11 +4,12 @@
     <string name="age">Age</string>
     <string name="gender">Gender</string>
     <string name="female">Female</string>
-    <string name="chainsmoker">ChainSmoker?</string>
+    <string name="Smoker">ChainSmoker?</string>
     <string name="Premium">Premium</string>
     <string name="calculate">Calculate</string>
     <string name="reset">Reset</string>
-    <string name="premium">premium</string>
+    <string name="premium">Premium</string>
+    <string name="chainsmoker">Smoker</string>
     <string-array name="age_group">
         <item>Less  than 5</item>
         <item>6 to 10</item>
